@@ -1,0 +1,33 @@
+body {
+  min-height: 3000px;
+}
+.jumbotron {
+  padding-top: 5rem;
+  background-color: #a2d9ff;
+}
+#gallery {
+  background-color: #a2d9ff;
+}
+section {
+  padding-top: 5rem;
+}
+section ul li {
+  display: inline-block;
+}
+#wa {
+  text-align: center;
+}
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+footer p {
+  padding: 20px;
+  margin: 30px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+}

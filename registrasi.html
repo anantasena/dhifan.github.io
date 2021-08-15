@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <!-- Registrasi CSS -->
+    <link rel="stylesheet" href="mycss/register.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="row justify-content-center mg-3">
+          <div class="col-md-6">
+            <form class="form-control" action="proses_registrasi.php" method="post" id="form">
+              <h4>Silahkan Isi Data Berikut Dengan Benar</h4>
+              <div class="input-container">
+                <input type="text" class="form-control" id="name" name="username" placeholder="Username" required autocomplete="off" />
+              </div>
+              <div class="input-container">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required autocomplete="off" />
+              </div>
+              <div class="input-container">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required autocomplete="off" />
+              </div>
+              <div class="input-container">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Name" required autocomplete="off" />
+              </div>
+              <button class="btn btn-primary">Daftar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
