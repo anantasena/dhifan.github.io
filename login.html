@@ -19,22 +19,22 @@
       <div class="container">
         <div class="row justify-content-center mg-3" id="row">
           <div class="col-md-6" id="col">
-            <form class="form-control" id="form">
+            <form class="form-control" id="form" action="proses_login.php" method="POST">
               <h5 class="text-center">Login</h5>
               <div class="mb-3">
                 <div class="input-container">
                   <i class="fa fa-user icon"></i>
-                  <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="username" required autocomplete="off" />
+                  <input type="text" class="form-control" id="username" name="username" aria-describedby="username" placeholder="username" required autocomplete="off" />
                 </div>
               </div>
               <div class="mb-3">
                 <div class="input-container">
                   <i class="fa fa-key icon"></i>
-                  <input type="password" class="form-control" id="password" aria-describedby="password" placeholder="password" required autocomplete="off" />
+                  <input type="password" class="form-control" id="password" name="password" aria-describedby="password" placeholder="password" required autocomplete="off" />
                 </div>
               </div>
               <div class="tombol">
-                <a href="timeline.html" class="btn btn-primary">Login</a>
+                <button class="btn btn-primary" value="Login" name="login">Login</button>
                 <a href="index.html" class="btn btn-secondary">Back</a>
               </div>
             </form>

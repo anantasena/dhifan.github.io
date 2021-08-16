@@ -1,26 +1,28 @@
 <?php
+session_start();
 require "connect.php";
 
-try {
-    if(isset($_POST['Login'])) {
-    $conn = new PDO("mysql:host=localhost;dbname=antasena", "root", "");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->query("SELECT * FROM alogin WHERE username = 'username' AND password = 'password'");
-    $stmt->execute();
+if(isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
 
-    if ($stmt){
-        echo "<script>alert('Berhasil Registrasi')</script>";
-        echo "<meta http-equiv='refresh' content='1 url=timeline.html'>";
-        return true;
-    }else{
-        echo "<script>alert('Gagal Registrasi')</script>";
-        echo "<meta http-equiv='refresh' content='1 url=index.php'>";
-        return false;
+    try {
+        $sql = "SELECT * FROM alogin WHERE (username = :username AND password = :password)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username',$username);
+        $stmt->bindParam(':password',$password);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        if($stmt->rowCount() > 0){
+            $_SESSION['username'] = $username;
+            echo "<script>alert('Berhasil Login')</script>";
+            echo "<meta http-equiv='refresh' content='2 url=timeline.html'>";
+        }else{
+            echo "<script>alert('Wrong Username or Password')</script>";
+            echo "<meta http-equiv='refresh' content='2 url=login.html'>";
+        }
+    }catch (PDOException $e) {
+        echo "Error: ".$e->getMessage();
     }
-    }
-} catch(PDOException $e) {
-    echo "Error: ". $e->getMessage();
 }
-$conn = null;
-
 ?>

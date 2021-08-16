@@ -10,11 +10,15 @@ try {
     $conn = new PDO("mysql:host=localhost;dbname=antasena", "root", "");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $query = "INSERT INTO alogin (username, password, name, email) VALUES (:username,:password,:name,:email)";
-    $stmt = $conn->prepare($query);
-    $stmt->execute(array(":username" => $username,":password" => $password,":name" => $name,":email" => $email));
+    $sql = "INSERT INTO alogin (username, password, name, email) VALUES (:username,:password,:name,:email)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':username',$username);
+    $stmt->bindParam(':password',$password);
+    $stmt->bindParam(':name',$name);
+    $stmt->bindParam(':email',$email);
+    $stmt->execute();
     
-    if ($query){
+    if ($stmt){
         echo "<script>alert('Berhasil Registrasi')</script>";
         echo "<meta http-equiv='refresh' content='1 url=index.html'>";
     }else{
